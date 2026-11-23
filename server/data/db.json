@@ -1,0 +1,334 @@
+{
+  "user": {
+    "username": "Avinav Singhal",
+    "password": "cyber123",
+    "displayName": "Avinav Singhal",
+    "role": "Lead Penetration Tester & Security Auditor",
+    "callsign": "SPECTRE-01",
+    "score": 2500,
+    "clearance": "Tier 4 - Restricted OffSec",
+    "vpnIp": "10.10.14.33",
+    "vpnActive": true,
+    "certifications": [
+      {
+        "code": "OSCP",
+        "name": "Offensive Security Certified Professional",
+        "issuer": "OffSec",
+        "status": "Active"
+      },
+      {
+        "code": "CEH",
+        "name": "Certified Ethical Hacker (Master)",
+        "issuer": "EC-Council",
+        "status": "Active"
+      },
+      {
+        "code": "CRTP",
+        "name": "Certified Red Team Professional",
+        "issuer": "Altered Security",
+        "status": "Active"
+      },
+      {
+        "code": "eWPTXv2",
+        "name": "Web Application Penetration Tester eXtreme",
+        "issuer": "INE Security",
+        "status": "Active"
+      }
+    ],
+    "attributes": {
+      "webSecurity": 96,
+      "privilegeEscalation": 92,
+      "cloudPentesting": 88,
+      "networkEnumeration": 94,
+      "apiSecurity": 90,
+      "binaryExploitation": 82
+    },
+    "toolset": [
+      "Metasploit Pro / Framework",
+      "Burp Suite Enterprise & Professional",
+      "Nmap NSE & Zenmap",
+      "Gobuster / Ffuf Directory Enumerators",
+      "SQLmap Automated Injection Engine",
+      "Wireshark Protocol Analyzer",
+      "Impacket Suite",
+      "Ghidra & Radare2 Decompilers"
+    ],
+    "flagsCaptured": [
+      "FLAG{sql_1nj3ct10n_byp4ss_m4st3r_2026}",
+      "FLAG{rce_c0mm4nd_1nj3ct10n_pwn3d_882}",
+      "FLAG{jwt_4lg_n0n3_w34k_s1gn4tur3_v4ult}"
+    ],
+    "auditLogs": [
+      {
+        "timestamp": "2026-11-23T14:13:46.428Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-11-03T08:58:31.259Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-11-03T05:18:16.917Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-11-03T04:34:04.817Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-11-02T17:52:13.547Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-11-02T15:13:51.325Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-11-02T15:13:25.626Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-11-02T14:37:54.280Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-10-31T08:07:47.045Z",
+        "action": "Target Compromised",
+        "detail": "Successfully submitted flag for [JWT Vault] (+400 PTS)"
+      },
+      {
+        "timestamp": "2026-10-30T17:12:41.890Z",
+        "action": "Target Compromised",
+        "detail": "Successfully submitted flag for [Command Injection Gateway] (+350 PTS)"
+      },
+      {
+        "timestamp": "2026-10-30T17:10:54.966Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-10-30T16:59:27.654Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-10-30T16:43:03.134Z",
+        "action": "VPN Tunnel Enabled",
+        "detail": "Interface tun0 bound to 10.10.14.33"
+      },
+      {
+        "timestamp": "2026-10-30T16:35:06.580Z",
+        "action": "VPN Tunnel Terminated",
+        "detail": "Interface tun0 brought DOWN"
+      },
+      {
+        "timestamp": "2026-10-30T16:35:06.571Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-10-30T16:30:17.718Z",
+        "action": "VPN Tunnel Enabled",
+        "detail": "Interface tun0 bound to 10.10.14.33"
+      },
+      {
+        "timestamp": "2026-10-30T16:30:14.185Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-10-30T16:26:49.542Z",
+        "action": "VPN Tunnel Terminated",
+        "detail": "Interface tun0 brought DOWN"
+      },
+      {
+        "timestamp": "2026-10-30T16:26:49.522Z",
+        "action": "Target Compromised",
+        "detail": "Successfully submitted flag for [SQL Fortress] (+250 PTS)"
+      },
+      {
+        "timestamp": "2026-10-30T16:26:49.515Z",
+        "action": "Operator Authenticated",
+        "detail": "Session opened from 127.0.0.1 for Avinav Singhal"
+      },
+      {
+        "timestamp": "2026-10-30T10:15:00Z",
+        "action": "VPN Tunnel Established",
+        "detail": "Interface tun0 linked to 10.10.14.33"
+      },
+      {
+        "timestamp": "2026-10-30T10:20:00Z",
+        "action": "Target Acquisition",
+        "detail": "Subnet 10.10.110.0/24 ping sweep completed"
+      }
+    ]
+  },
+  "labs": [
+    {
+      "id": 1,
+      "name": "SQL Fortress",
+      "category": "Web / SQL Injection",
+      "type": "web",
+      "difficulty": "easy",
+      "points": 250,
+      "ip": "10.10.110.11",
+      "ports": "80/http (Apache 2.4.52), 3306/mysql (MariaDB 10.6)",
+      "flag": "FLAG{sql_1nj3ct10n_byp4ss_m4st3r_2026}",
+      "desc": "Corporate staff intranet portal vulnerable to SQL injection via unescaped string concatenation in the login query.",
+      "hint": "Try bypass payloads like ' OR '1'='1' -- or admin' -- in the username parameter.",
+      "url": "http://10.10.110.11/login.php",
+      "cve": "CWE-89: SQL Injection",
+      "mitreTactic": "T1190 - Exploit Public-Facing Application"
+    },
+    {
+      "id": 2,
+      "name": "Command Injection Gateway",
+      "category": "Web / Remote Code Execution",
+      "type": "web",
+      "difficulty": "medium",
+      "points": 350,
+      "ip": "10.10.110.22",
+      "ports": "80/http (Nginx 1.18), 22/ssh (OpenSSH 8.9p1)",
+      "flag": "FLAG{rce_c0mm4nd_1nj3ct10n_pwn3d_882}",
+      "desc": "Internal Network Diagnostic ping service passing unsanitized shell parameters to system exec().",
+      "hint": "Chain system commands using shell delimiters like ;, &&, or |. Try 8.8.8.8; cat flag.txt.",
+      "url": "http://10.10.110.22/diagnostics.php",
+      "cve": "CWE-78: OS Command Injection",
+      "mitreTactic": "T1059 - Command and Scripting Interpreter"
+    },
+    {
+      "id": 3,
+      "name": "XSS Playground",
+      "category": "Web / Stored XSS",
+      "type": "web",
+      "difficulty": "easy",
+      "points": 250,
+      "ip": "10.10.110.33",
+      "ports": "80/http (Express 4.18.2)",
+      "flag": "FLAG{st0r3d_xss_c00k13_h1j4ck_9011}",
+      "desc": "Interactive Customer Support feedback forum that fails to sanitize and encode HTML entities before rendering to the DOM.",
+      "hint": "Submit a script payload <script>alert(document.cookie)</script> or an image onerror handler.",
+      "url": "http://10.10.110.33/feedback.html",
+      "cve": "CWE-79: Cross-Site Scripting (Stored)",
+      "mitreTactic": "T1189 - Drive-by Compromise"
+    },
+    {
+      "id": 4,
+      "name": "JWT Vault",
+      "category": "Auth / Broken Token Signature",
+      "type": "cloud",
+      "difficulty": "medium",
+      "points": 400,
+      "ip": "10.10.110.44",
+      "ports": "8080/api (FastAPI/Uvicorn), 80/http",
+      "flag": "FLAG{jwt_4lg_n0n3_w34k_s1gn4tur3_v4ult}",
+      "desc": "Enterprise API token validation service vulnerable to Alg: 'none' signature bypass and weak secret brute-force.",
+      "hint": "Decode the JWT header, change alg from HS256 to none, set role to admin, or sign with weak secret.",
+      "url": "http://10.10.110.44:8080/api/v1/vault",
+      "cve": "CWE-347: Improper Verification of Cryptographic Signature",
+      "mitreTactic": "T1556 - Modify Authentication Process"
+    },
+    {
+      "id": 5,
+      "name": "Cloud S3 Bucket Leak",
+      "category": "Cloud / AWS Misconfiguration",
+      "type": "cloud",
+      "difficulty": "medium",
+      "points": 350,
+      "ip": "10.10.110.55",
+      "ports": "80/http, 443/https (CloudFront S3 Gateway)",
+      "flag": "FLAG{s3_0p3n_bu4ck3t_cl0ud_l34k_7719}",
+      "desc": "Publicly accessible AWS S3 Storage bucket containing sensitive production server configs and database snapshots.",
+      "hint": "Enumerate XML listing on http://corp-backup-bucket.s3.amazonaws.com and inspect production_secrets.env.",
+      "url": "http://corp-backup-bucket.s3.amazonaws.com",
+      "cve": "CWE-200: Exposure of Sensitive Information",
+      "mitreTactic": "T1530 - Data from Cloud Storage"
+    },
+    {
+      "id": 6,
+      "name": "LFI & Path Traversal",
+      "category": "Web / Local File Inclusion",
+      "type": "web",
+      "difficulty": "hard",
+      "points": 450,
+      "ip": "10.10.110.66",
+      "ports": "80/http (Apache/2.4.41 PHP 7.4)",
+      "flag": "FLAG{lfi_p4th_tr4v3rs4l_l0g_p01s0n_4421}",
+      "desc": "Dynamic document preview parameter vulnerable to directory traversal and local file inclusion.",
+      "hint": "Navigate backward using ../../../../etc/passwd or inspect /var/www/flag.txt.",
+      "url": "http://10.10.110.66/view.php?file=welcome.txt",
+      "cve": "CWE-22: Path Traversal",
+      "mitreTactic": "T1083 - File and Directory Discovery"
+    },
+    {
+      "id": 7,
+      "name": "SSRF Relay Hub",
+      "category": "API / Server-Side Request Forgery",
+      "type": "cloud",
+      "difficulty": "hard",
+      "points": 450,
+      "ip": "10.10.110.77",
+      "ports": "80/http, 5000/api (Node.js Request Proxy)",
+      "flag": "FLAG{ssrf_cl0ud_m3t4d4t4_3xp0s3d_6623}",
+      "desc": "Webhook URL validator that allows SSRF queries to reach the internal AWS Link-Local Cloud Metadata Service (169.254.169.254).",
+      "hint": "Supply the cloud metadata endpoint: http://169.254.169.254/latest/meta-data/iam/security-credentials/admin-role.",
+      "url": "http://10.10.110.77/proxy.php",
+      "cve": "CWE-918: Server-Side Request Forgery (SSRF)",
+      "mitreTactic": "T1090 - Proxy"
+    },
+    {
+      "id": 8,
+      "name": "SUID PrivEsc Fortress",
+      "category": "System / Linux Privilege Escalation",
+      "type": "system",
+      "difficulty": "insane",
+      "points": 500,
+      "ip": "10.10.110.88",
+      "ports": "22/ssh (OpenSSH 8.4), 80/http (Web Terminal)",
+      "flag": "FLAG{su1d_pr1v3sc_gtf0b1ns_r00t_0099}",
+      "desc": "Ubuntu Server with a misconfigured custom backup binary possessing the SUID bit set, allowing root privilege escalation.",
+      "hint": "Locate SUID binaries via find / -perm -u=s 2>/dev/null. Exploit /usr/local/bin/backup_mgr.",
+      "url": "http://10.10.110.88/shell",
+      "cve": "CWE-269: Improper Privilege Management",
+      "mitreTactic": "T1548 - Abuse Elevation Control Mechanism"
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Ayush Gupta",
+      "score": 2850,
+      "flags": 6,
+      "badge": "Root Master",
+      "status": "Active"
+    },
+    {
+      "name": "Aditya",
+      "score": 2400,
+      "flags": 5,
+      "badge": "Web Sniper",
+      "status": "Active"
+    },
+    {
+      "name": "Piyush Gupta",
+      "score": 2150,
+      "flags": 4,
+      "badge": "PrivEsc Specialist",
+      "status": "Active"
+    },
+    {
+      "name": "Yogesh Sharma",
+      "score": 1800,
+      "flags": 3,
+      "badge": "OWASP Sentinel",
+      "status": "Active"
+    }
+  ]
+}

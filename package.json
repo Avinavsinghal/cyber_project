@@ -1,0 +1,19 @@
+{
+  "name": "cyber_project",
+  "version": "1.0.0",
+  "description": "**Subject**: Practical Cyber Security Lab Project   **Lead Auditor / Student**: Avinav Singhal   **Format**: Single Standalone Web Application (`index.html`)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "express": "^5.3.0"
+  }
+}
